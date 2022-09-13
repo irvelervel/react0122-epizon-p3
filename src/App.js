@@ -5,6 +5,7 @@ import BookStore from './components/BookStore'
 import Cart from './components/Cart'
 import { Col, Container, Row } from 'react-bootstrap'
 import Footer from './components/Footer'
+import ClassComponent from './components/ClassComponent'
 
 const App = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => (
       <Routes>
         <Route path="/" element={<BookStore />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/class" element={<ClassComponent />} />
       </Routes>
       <Footer />
     </Container>

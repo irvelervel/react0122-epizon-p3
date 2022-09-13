@@ -53,6 +53,9 @@ export const getBooksAction = () => {
     // qui possiamo gestire qualsiasi operazione asicrona e, una volta ottenuto il risultato,
     // dispatchare quanto ottenuto
     try {
+      dispatch({
+        type: GET_BOOKS_LOADING,
+      })
       let resp = await fetch(
         'https://striveschool-api.herokuapp.com/food-books'
       )
@@ -64,9 +67,11 @@ export const getBooksAction = () => {
           type: GET_BOOKS,
           payload: fetchedBooks, // noi dobbiamo fornire al reducer il prodotto finito!
         })
-        dispatch({
-          type: GET_BOOKS_LOADING,
-        })
+        setTimeout(() => {
+          dispatch({
+            type: GET_BOOKS_LOADING,
+          })
+        }, 500)
       } else {
         console.log('error')
         dispatch({

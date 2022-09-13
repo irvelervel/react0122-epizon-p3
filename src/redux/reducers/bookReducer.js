@@ -11,7 +11,7 @@ import { GET_BOOKS, GET_BOOKS_ERROR, GET_BOOKS_LOADING } from '../actions'
 const initialState = {
   stock: [], // qui dentro salverò lo user name in modo da sbloccare all'utente
   // le funzionalità del cart
-  loading: true,
+  loading: false,
   error: false,
 }
 
@@ -37,7 +37,7 @@ const bookReducer = (state = initialState, action) => {
     case GET_BOOKS_LOADING:
       return {
         ...state,
-        loading: false,
+        loading: !state.loading,
       }
 
     default:
